@@ -1,4 +1,5 @@
-const BASE_URL = 'http://localhost:3001/api';
+
+const BASE_URL = process.env.NEXT_PUBLIC_API_URL;
 
 // Función auxiliar para obtener headers con token
 function getAuthHeaders() {
