@@ -11,16 +11,14 @@ export default function Navbar() {
   const isActive = (href) => pathname === href;
 
   return (
-    <nav className="bg-gradient-to-r from-blue-900 via-blue-800 to-red-800 shadow-2xl relative">
-      <div className="absolute inset-0 bg-black opacity-10"></div>
+    <nav className="bg-gradient-to-r from-purple-200 via-green-100 to-pink-200 shadow-xl relative">
+      <div className="absolute inset-0 bg-white opacity-20"></div>
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           <div className="flex-shrink-0 flex items-center">
             <div className="flex items-center space-x-3">
-              <div className="w-10 h-10 rounded-full bg-gradient-to-r from-yellow-400 to-yellow-300 flex items-center justify-center shadow-lg">
-                <span className="text-xl">🏆</span>
-              </div>
-              <span className="text-white text-2xl font-extrabold tracking-wide">BarcaFarma</span>
+            
+              <span className="text-purple-700 text-2xl font-extrabold tracking-wide drop-shadow-sm">Bienvenida</span>
             </div>
           </div>
 
@@ -32,22 +30,22 @@ export default function Navbar() {
               {isAuthenticated() && (
                 <>
                   <NavLink href="/productos" active={isActive('/productos')}>
-                    💊 Medicamentos
+                    💊 Medicinas
                   </NavLink>
                   <NavLink href="/categorias" active={isActive('/categorias')}>
-                    📂 Categorías
+                    🌿 Categorías
                   </NavLink>
                 </>
               )}
               
               {isAuthenticated() ? (
                 <div className="flex items-center space-x-2 ml-4">
-                  <span className="text-white text-sm">
+                  <span className="text-purple-700 text-sm">
                     👋 Hola, {usuario?.nombre}
                   </span>
                   <button
                     onClick={logout}
-                    className="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-full text-sm font-semibold transition-all duration-300"
+                    className="bg-pink-400 hover:bg-pink-500 text-white px-4 py-2 rounded-full text-sm font-semibold transition-all duration-300"
                   >
                     🚪 Salir
                   </button>
@@ -58,7 +56,7 @@ export default function Navbar() {
                     🔐 Iniciar Sesión
                   </NavLink>
                   <NavLink href="/auth/registro" active={isActive('/auth/registro')}>
-                    👤 Registrarse
+                    📝 Registrarse
                   </NavLink>
                 </div>
               )}
@@ -76,8 +74,8 @@ function NavLink({ href, active, children }) {
       <Link href={href} passHref>
         <span className={`${
           active 
-            ? 'bg-gradient-to-r from-yellow-400 to-yellow-300 text-blue-900 shadow-lg' 
-            : 'text-white hover:bg-white hover:bg-opacity-20'
+            ? 'bg-gradient-to-r from-purple-300 to-green-200 text-purple-900 shadow-lg' 
+            : 'text-purple-700 hover:bg-white hover:bg-opacity-40'
         } px-4 py-2 rounded-full text-sm font-semibold cursor-pointer transition-all duration-300 transform hover:scale-105`}>
           {children}
         </span>
